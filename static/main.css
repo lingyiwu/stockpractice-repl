@@ -1,0 +1,9 @@
+.form-floating label {
+  	color: #000 !important;
+  	font-size: 1.2em;
+}
+
+.form-floating input {
+  	padding: 50px 15px 20px !important;
+  	font-size: 1.5em;
+}
