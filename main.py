@@ -6,16 +6,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'Hello from Flask!'
+    return render_template('home.html')
 
 @app.route('/favicon.ico')
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/x-icon')
-    
-# route 名稱必須以斜線開頭
-@app.route('/home')
-def home():
-    return render_template('home.html')
 
 # 最佳五檔主頁
 @app.route('/fibest')
@@ -41,7 +36,7 @@ def fibest_table(price):
         fibest.append(f'{price + (5-i) * step:.2f}')
     for i in range(5):
         fibest.append(f'{price - i * step:.2f}')
-    print(fibest)
+    # print(fibest)
     return {'price': price, 'fibest': fibest}
 
 app.run(host='0.0.0.0', port=81)
